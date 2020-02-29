@@ -41,6 +41,7 @@ function getAllStepsByGuideID(id) {
     .select(
       'guides.title',
       'guides.description',
+      'steps.step_number',
       'steps.description',
       // 'steps.stepPhoto'
     )
