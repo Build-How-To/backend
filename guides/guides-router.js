@@ -18,4 +18,20 @@ router.get('/', (req, res) => {
     })
 })
 
+// add guide
+
+// update guide
+
+// remove guide
+
+// get buide by ID
+
+// get all steps by guide ID
+
+// add step to guide
+
+// update step
+
+// remove step
+
 module.exports = router;
