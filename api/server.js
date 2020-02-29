@@ -22,3 +22,6 @@ server.get('/', (req, res) => {
 })
 
 module.exports = server;
+
+// ToDo
+// revisit photo option in guides-model
