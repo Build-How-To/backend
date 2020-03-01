@@ -7,6 +7,7 @@ module.exports = {
   removeGuide,
   getGuideByID,
   getAllStepsByGuideID,
+  getStepByID,
   addStepToGuide,
   updateStep,
   removeStep
@@ -24,16 +25,22 @@ function addGuide(guide) {
     })
 }
 
-function updateGuide() {
-
+function updateGuide(changes, id) {
+  return guidesDB('guides')
+    .where({ id })
+    .update(changes);
 }
 
-function removeGuide() {
-
+function removeGuide(id) {
+  return guidesDB('guides')
+    .where({ id })
+    .del()
 }
 
-function getGuideByID() {
-
+function getGuideByID(id) {
+  return guidesDB('guides')
+    .where({ id })
+    .first()
 }
 
 function getAllStepsByGuideID(id) {
@@ -54,8 +61,14 @@ function getAllStepsByGuideID(id) {
     })
 }
 
+function getStepByID(id) {
+  return guidesDB('steps')
+    .where({ id })
+    .first()
+}
+
 function addStepToGuide(step) {
-  return projectsDB('steps')
+  return guidesDB('steps')
     .insert(step)
     .then(step => {
       return step;

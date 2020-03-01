@@ -25,3 +25,4 @@ module.exports = server;
 
 // ToDo
 // revisit photo option in guides-model
+// add logic to prevent empty strings in register/login fields, see snippet sent by Samuel
