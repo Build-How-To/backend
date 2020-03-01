@@ -19,6 +19,17 @@ router.get('/', (req, res) => {
 })
 
 // add guide
+router.post('/', (req, res) => {
+  const guideData = req.body;
+
+  Guides.add(guideData)
+    .then(guide => {
+      res.status(201).json(guide);
+    })
+    .catch(error => {
+      res.status(500).json({ message: 'Error creating new guide', error })
+    })
+})
 
 // update guide
 router.put('/:id', (req, res) => {
@@ -58,9 +69,39 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-// get buide by ID
+// get guide by ID
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
+
+  Guides.getGuideByID(id)
+    .then(guide => {
+      if (guide) {
+        res.json(guide)
+      } else {
+        res.status(404).json({ message: 'Could not find guide with that id!' })
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: 'Error getting that guide!', error })
+    })
+})
 
 // get all steps by guide ID
+router.get('/:id/steps', (req, res) => {
+  const { id } = req.params;
+
+  Guides.getAllStepsByGuideID(id)
+    .then(steps => {
+      if(steps.length) {
+        res.json(steps)
+      } else {
+        res.status(404).json({ message: 'Could not find any steps with that guide id!' })
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: 'Error getting steps for that guide id!', error })
+    })
+})
 
 // add step to guide
 router.post('/:id/steps', (req, res) => {

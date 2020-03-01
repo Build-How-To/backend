@@ -75,10 +75,14 @@ function addStepToGuide(step) {
     })
 }
 
-function updateStep() {
-
+function updateStep(changes, id) {
+  return guidesDB('steps')
+    .where({ id })
+    .update(changes);
 }
 
-function removeStep() {
-
+function removeStep(id) {
+  return guidesDB('steps')
+    .where({ id })
+    .del()
 }
