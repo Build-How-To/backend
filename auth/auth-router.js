@@ -12,8 +12,11 @@ router.post('/register', (req, res) => {
   user.password = hash;
 
   Users.add(user)
-    .then(saved => {
-      res.status(201).json(saved);
+    .then(user => {
+      res.status(201).json({
+        message: `Welcome, ${user.username}!`,
+        id: user.id
+      });
     })
     .catch(error => {
       res.status(500).json(error)
@@ -32,6 +35,7 @@ router.post('/login', (req, res) => {
 
         res.status(200).json({
           message: `Welcome, ${user.username}!`,
+          id: user.id,
           token
         })
       } else {

@@ -25,5 +25,7 @@ module.exports = server;
 
 // ToDo
 // revisit photo option in guides-model
-// add logic to prevent empty strings in register/login fields, see snippet sent by Samuel
-// deploy to heroku, verify login/register work with deployed db, then migrate to postgres
+// add logic to prevent empty strings in register/login fields, also in forms for guiedes/steps, see snippet sent by Samuel
+// add logic to prevent duplicate usernames and email addresses during registration
+// migrate to postgres
+// get documentation going in either the readme or postman docs, or both
