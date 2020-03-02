@@ -8,9 +8,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   Guides.getAllGuides()
     .then(guides => {
-      guides.map(guide => {
-        res.status(200).json(guides)
-      })
+      res.json(guides)
     })
     .catch(error => {
       console.log(error);
