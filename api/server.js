@@ -29,3 +29,5 @@ module.exports = server;
 // add logic to prevent duplicate usernames and email addresses during registration
 // migrate to postgres
 // get documentation going in either the readme or postman docs, or both
+// implement relational table with foreign key for reviews
+// seed guides and steps
