@@ -57,3 +57,44 @@ If successful, the login request will get the following response, also as JSON:
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5pbmEiLCJyb2xlIjoidXNlciIsImlhdCI6MTU4MzE2Nzg4NywiZXhwIjoxNTgzMjU0Mjg3fQ.v6rRltdEr30KAzXbpPkVv1DFXa7t5lBRXRquHMvzmic"
 }
 ```
+
+---
+
+## Get all guides
+
+Make a GET request to:
+
+https://how-to-build-week.herokuapp.com/api/guides
+
+**NOTE:** The GET request must include the following in the **header** of the request:
+
+`Content-Type: application/json`
+
+AND
+
+`authorization: token`
+
+where "token" is the token that was provided by the server upon successful login.
+
+If successful, the get request will get the following response, also as JSON:
+
+```
+[
+  {
+    "id": 1,
+    "title": "Upgrade your career",
+    "description": "Get a better career in a few (easy?) steps!",
+    "category": "tech",
+    "difficulty": "hard",
+    "creator_user_id": 1
+  },
+  {
+    "id": 2,
+    "title": "Make a dubstep tune",
+    "description": "Create a new dancefloor hit from scratch!",
+    "category": "music",
+    "difficulty": "hard",
+    "creator_user_id": 1
+  }
+]
+```
