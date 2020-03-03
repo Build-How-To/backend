@@ -14,11 +14,11 @@ The registration request must include the following fields in the request body a
 
 ```
 {
-	"username": "adamuser",
-	"password": "password",
-	"email": "adam@adam.me",
-	"first_name": "adam",
-	"last_name": "winz"
+  "username": "adamuser",
+  "password": "password",
+  "email": "adam@adam.me",
+  "first_name": "adam",
+  "last_name": "winz"
 }
 ```
 
@@ -43,8 +43,8 @@ The login request must include the following fields in the request body as JSON:
 
 ```
 {
-	"username": "adamuser",
-	"password": "password"
+  "username": "adamuser",
+  "password": "password"
 }
 ```
 
@@ -138,11 +138,11 @@ The POST request must include the following fields in the request body as JSON:
 
 ```
 {
-	"title": "Change the spark plugs in your car",
-	"description": "Learn to change the spark plugs in your car from the comfort of your own garage",
-	"category": "auto",
-	"difficulty": "hard",
-	"creator_user_id": 2
+  "title": "Change the spark plugs in your car",
+  "description": "Learn to change the spark plugs in your car from the comfort of your own garage",
+  "category": "auto",
+  "difficulty": "hard",
+  "creator_user_id": 2
 }
 ```
 
@@ -174,8 +174,8 @@ The PUT request requires only the fields to be updated in the request body as JS
 
 ```
 {
-	"title": "Change the quantum reactor in your car",
-	"description": "Learn to change the quantum reactor in your car from the comfort of your own garage"
+  "title": "Change the quantum reactor in your car",
+  "description": "Learn to change the quantum reactor in your car from the comfort of your own garage"
 }
 ```
 

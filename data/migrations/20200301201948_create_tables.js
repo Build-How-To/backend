@@ -27,6 +27,8 @@ exports.up = function(knex) {
       .inTable('users')
       .onUpdate('CASCADE')
       .onDelete('CASCADE')
+
+    tbl.integer('tries');
   })
 };
 
@@ -35,3 +37,13 @@ exports.down = function(knex, Promise) {
     .dropTableIfExists('users')
     .dropTableIfExists('guides')
 };
+
+// add column to existing table, in this case guides
+// add to table in existing file
+// rollback
+// migrate:latest
+
+// add completely new table
+// knex migrate:make create_steps
+// add only the new table to the new migration file
+// save, then migrate:latest

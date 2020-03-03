@@ -30,3 +30,6 @@ module.exports = server;
 // migrate to postgres
 // implement relational table with foreign key for reviews
 // seed guides and steps
+
+// add attempt field to guides
+// add reviews table
