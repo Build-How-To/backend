@@ -86,7 +86,8 @@ If successful, the get request will result in the following response, also as JS
     "description": "Get a better career in a few (easy?) steps!",
     "category": "tech",
     "difficulty": "hard",
-    "creator_user_id": 1
+    "creator_user_id": 1,
+    "tries": null
   },
   {
     "id": 2,
@@ -94,7 +95,8 @@ If successful, the get request will result in the following response, also as JS
     "description": "Create a new dancefloor hit from scratch!",
     "category": "music",
     "difficulty": "hard",
-    "creator_user_id": 1
+    "creator_user_id": 1,
+    "tries": null
   }
 ]
 ```
@@ -120,7 +122,8 @@ If successful, the get request will result in the following response, also as JS
   "description": "Make a good photograph look even better!",
   "category": "photography",
   "difficulty": "medium",
-  "creator_user_id": 1
+  "creator_user_id": 1,
+  "tries": null
 }
 ```
 
@@ -205,4 +208,59 @@ If successful, the delete request will result in the following response, also as
 {
   "message": "Guide deleted!"
 }
+```
+
+---
+
+## Get all steps by guide ID
+
+Make a GET request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/:id/steps
+
+where :id in the URL is the id of the guide.
+
+The header of this request must also include the relevant Content-Type and token information.
+
+If successful, the get request will result in the following response, also in JSON:
+
+```
+[
+  {
+    "id": 1,
+    "title": "Upgrade your career",
+    "step_number": 1,
+    "description": "Get a decent computer with internet access"
+  },
+  {
+    "id": 2,
+    "title": "Upgrade your career",
+    "step_number": 2,
+    "description": "Sign up to Lambda School"
+  },
+  {
+    "id": 3,
+    "title": "Upgrade your career",
+    "step_number": 3,
+    "description": "Agree to ISA"
+  },
+  {
+    "id": 4,
+    "title": "Upgrade your career",
+    "step_number": 4,
+    "description": "Study hard"
+  },
+  {
+    "id": 5,
+    "title": "Upgrade your career",
+    "step_number": 5,
+    "description": "Get new job!"
+  },
+  {
+    "id": 6,
+    "title": "Upgrade your career",
+    "step_number": 6,
+    "description": "Profit!"
+  }
+]
 ```

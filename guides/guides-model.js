@@ -17,14 +17,6 @@ function getAllGuides() {
   return guidesDB('guides');
 }
 
-// function addGuide(guide) {
-//   return guidesDB('guides')
-//     .insert(guide)
-//     .then(guide => {
-//       return guide;
-//     })
-// }
-
 async function addGuide(guide) {
   const [id] = await guidesDB('guides').insert(guide)
 
@@ -49,22 +41,30 @@ function getGuideByID(id) {
     .first()
 }
 
+// function getAllStepsByGuideID(id) {
+//   return guidesDB('steps')
+//     .select(
+//       'guides.title',
+//       'guides.description',
+//       'steps.step_number',
+//       'steps.description',
+//       // 'steps.stepPhoto'
+//     )
+//     .join('guides', 'steps.guide_id', 'steps.id')
+//     .where({ 'guides.id': id })
+//     .then(steps => {
+//       return steps.map(step => {
+//         return {...step}
+//       })
+//     })
+// }
+
 function getAllStepsByGuideID(id) {
   return guidesDB('steps')
-    .select(
-      'guides.title',
-      'guides.description',
-      'steps.step_number',
-      'steps.description',
-      // 'steps.stepPhoto'
-    )
-    .join('guides', 'steps.guide_id', 'steps.id')
-    .where({ 'guides.id': id })
-    .then(steps => {
-      return steps.map(step => {
-        return {...step}
-      })
-    })
+    .join('guides', 'guides.id', 'steps.guide_id')
+    .select('steps.id', 'guides.title', 'steps.step_number', 'steps.description')
+    .where('steps.guide_id', id)
+    .orderBy('step_number', 'asc')
 }
 
 function getStepByID(id) {
