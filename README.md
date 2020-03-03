@@ -145,7 +145,8 @@ The POST request must include the following fields in the request body as JSON:
   "description": "Learn to change the spark plugs in your car from the comfort of your own garage",
   "category": "auto",
   "difficulty": "hard",
-  "creator_user_id": 2
+  "creator_user_id": 2,
+  "tries": null
 }
 ```
 
@@ -263,4 +264,35 @@ If successful, the get request will result in the following response, also in JS
     "description": "Profit!"
   }
 ]
+```
+
+---
+
+## Add step to guide
+
+Make a POST request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/:id/steps
+
+where :id in the URL is the id of the guide.
+
+The header of this request must also include the relevant Content-Type and token information.
+
+The POST request must include the following fields in the request body as JSON:
+
+```
+
+{
+	"step_number": 9,
+	"description": "Watch your money grow!",
+	"guide_id": 1
+}
+```
+
+If successful, the post request will result in the following response, also in JSON:
+
+```
+{
+  "message": "Step added!"
+}
 ```

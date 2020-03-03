@@ -29,9 +29,9 @@ module.exports = server;
 // add logic to prevent duplicate usernames and email addresses during registration
 // migrate to postgres
 // implement relational table with foreign key for reviews
-// seed guides and steps
 
-// add attempt field to guides
 // add reviews table
 
 // check to make sure front end can get user by ID
+
+// heroku requires "tries": null in post new guide, but not required locally?
