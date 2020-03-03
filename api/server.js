@@ -33,3 +33,5 @@ module.exports = server;
 
 // add attempt field to guides
 // add reviews table
+
+// check to make sure front end can get user by ID

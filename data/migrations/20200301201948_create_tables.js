@@ -39,9 +39,10 @@ exports.down = function(knex, Promise) {
 };
 
 // add column to existing table, in this case guides
-// add to table in existing file
-// rollback
-// migrate:latest
+// add new column to table in existing migration file
+// knex migrate:rollback
+// knex migrate:latest
+// data will be lost, but new column should now be present in db3 file.
 
 // add completely new table
 // knex migrate:make create_steps
