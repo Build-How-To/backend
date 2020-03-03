@@ -4,7 +4,7 @@
 
 ---
 
-## Registration
+## User Registration
 
 Make a POST request to:
 
@@ -33,7 +33,7 @@ If successful, the registration request will get the following response, also as
 
 ---
 
-## Login
+## User Login
 
 Make a POST request to:
 
@@ -55,6 +55,23 @@ If successful, the login request will get the following response, also as JSON:
   "message": "Welcome, adamuser!",
   "id": 3,
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5pbmEiLCJyb2xlIjoidXNlciIsImlhdCI6MTU4MzE2Nzg4NywiZXhwIjoxNTgzMjU0Mjg3fQ.v6rRltdEr30KAzXbpPkVv1DFXa7t5lBRXRquHMvzmic"
+}
+```
+
+---
+
+## Get user by ID
+
+Make a GET request to: https://how-to-build-week.herokuapp.com/api/auth/users/:id
+
+where :id in the URL is the id of the user.
+
+If successful, the get request will result in the following response, also as JSON:
+
+```
+{
+  "username": "sarah",
+  "id": 2
 }
 ```
 

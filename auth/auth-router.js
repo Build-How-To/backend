@@ -48,6 +48,23 @@ router.post('/login', (req, res) => {
     })
 })
 
+// get user by ID
+router.get('/users/:id', (req, res) => {
+  const { id } = req.params;
+
+  Users.findById(id)
+    .then(user => {
+      if(user) {
+        res.json(user)
+      } else {
+        res.status(404).json({ message: 'Could not find user with that id!'})
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: 'Error getting user by id!', error })
+    })
+})
+
 function generateToken(user) {
   const payload = {
     username: user.username,
