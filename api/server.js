@@ -32,6 +32,4 @@ module.exports = server;
 
 // add reviews table
 
-// check to make sure front end can get user by ID
-
 // heroku requires "tries": null in post new guide, but not required locally?

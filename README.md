@@ -300,9 +300,9 @@ The POST request must include the following fields in the request body as JSON:
 ```
 
 {
-	"step_number": 9,
-	"description": "Watch your money grow!",
-	"guide_id": 1
+  "step_number": 9,
+  "description": "Watch your money grow!",
+  "guide_id": 1
 }
 ```
 
