@@ -17,12 +17,18 @@ function getAllGuides() {
   return guidesDB('guides');
 }
 
-function addGuide(guide) {
-  return guidesDB('guides')
-    .insert(guide)
-    .then(guide => {
-      return guide;
-    })
+// function addGuide(guide) {
+//   return guidesDB('guides')
+//     .insert(guide)
+//     .then(guide => {
+//       return guide;
+//     })
+// }
+
+async function addGuide(guide) {
+  const [id] = await guidesDB('guides').insert(guide)
+
+  return getGuideByID(id);
 }
 
 function updateGuide(changes, id) {

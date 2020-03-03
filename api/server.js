@@ -30,4 +30,3 @@ module.exports = server;
 // migrate to postgres
 // implement relational table with foreign key for reviews
 // seed guides and steps
-// edit create guide model/router to return more than just the new guide id

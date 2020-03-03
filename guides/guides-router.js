@@ -26,7 +26,8 @@ router.post('/', (req, res) => {
         message: 'New guide added!',
         id: guide.id,
         title: guide.title,
-        description: guide.description
+        description: guide.description,
+        creator_user_id: guide.creator_user_id
       });
     })
     .catch(error => {
@@ -44,7 +45,9 @@ router.put('/:id', (req, res) => {
       if (guide) {
         Guides.updateGuide(changes, id)
           .then(updatedGuide => {
-            res.json(updatedGuide)
+            res.json({
+              message: 'Guide updated!'
+            })
           })
       } else {
         res.status(404).json({ message: 'Could not find guide with that id!' })

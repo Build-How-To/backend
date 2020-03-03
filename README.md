@@ -123,3 +123,86 @@ If successful, the get request will result in the following response, also as JS
   "creator_user_id": 1
 }
 ```
+
+---
+
+## Post a new guide
+
+Make a POST request to:
+
+https://how-to-build-week.herokuapp.com/api/guides
+
+The header of this request must also include the relevant Content-Type and token information.
+
+The POST request must include the following fields in the request body as JSON:
+
+```
+{
+	"title": "Change the spark plugs in your car",
+	"description": "Learn to change the spark plugs in your car from the comfort of your own garage",
+	"category": "auto",
+	"difficulty": "hard",
+	"creator_user_id": 2
+}
+```
+
+If successful, the post request will result in the following response, also as JSON:
+
+```
+{
+  "message": "New guide added!",
+  "id": 9,
+  "title": "Change the spark plugs in your car",
+  "description": "Learn to change the spark plugs in your car from the comfort of your own garage",
+  "creator_user_id": 2
+}
+```
+
+---
+
+## Edit a guide
+
+Make a PUT request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/:id
+
+where :id in the URL is the id of the guide.
+
+The header of this request must also include the relevant Content-Type and token information.
+
+The PUT request requires only the fields to be updated in the request body as JSON:
+
+```
+{
+	"title": "Change the quantum reactor in your car",
+	"description": "Learn to change the quantum reactor in your car from the comfort of your own garage"
+}
+```
+
+If successful, the put request will result in the following response, also as JSON:
+
+```
+{
+  "message": "Guide updated!"
+}
+```
+
+---
+
+## Delete Guide
+
+Make a DELETE request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/:id
+
+where :id in the URL is the id of the guide.
+
+The header of this request must also include the relevant Content-Type and token information.
+
+If successful, the delete request will result in the following response, also as JSON:
+
+```
+{
+  "message": "Guide deleted!"
+}
+```
