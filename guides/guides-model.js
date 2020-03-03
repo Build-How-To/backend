@@ -41,24 +41,6 @@ function getGuideByID(id) {
     .first()
 }
 
-// function getAllStepsByGuideID(id) {
-//   return guidesDB('steps')
-//     .select(
-//       'guides.title',
-//       'guides.description',
-//       'steps.step_number',
-//       'steps.description',
-//       // 'steps.stepPhoto'
-//     )
-//     .join('guides', 'steps.guide_id', 'steps.id')
-//     .where({ 'guides.id': id })
-//     .then(steps => {
-//       return steps.map(step => {
-//         return {...step}
-//       })
-//     })
-// }
-
 function getAllStepsByGuideID(id) {
   return guidesDB('steps')
     .join('guides', 'guides.id', 'steps.guide_id')

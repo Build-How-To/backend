@@ -131,7 +131,41 @@ router.post('/:id/steps', (req, res) => {
 })
 
 // update step
+router.put('/steps/:id', (req, res) => {
+  const stepData = req.body;
+  const { id } = req.params
+
+  Guides.getStepByID(id)
+    .then(step => {
+      if(step) {
+        Guides.updateStep(stepData, id)
+          .then(updatedStep => {
+            res.json({ message: 'Step updated!' });
+          })
+      } else {
+        res.status(404).json({ message: 'Could not locate step with that id!' })
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: 'Error updating that step', error })
+    })
+})
 
 // remove step
+router.delete('/steps/:id', (req, res) => {
+  const { id } = req.params;
+  
+  Guides.removeStep(id)
+    .then(deleted => {
+      if (deleted) {
+        res.json({ message: 'Step deleted!' })
+      } else {
+        res.status(404).json({ message: 'Could not find step with that id!' })
+      }
+    })
+    .catch (error => {
+      res.status(500).json({ message: 'Error deleting that step!', error })
+    })
+})
 
 module.exports = router;

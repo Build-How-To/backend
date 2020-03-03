@@ -296,3 +296,58 @@ If successful, the post request will result in the following response, also in J
   "message": "Step added!"
 }
 ```
+
+---
+
+## Update step
+
+Make a PUT request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/steps/:id
+
+where :id in the URL is the id of the step to be updated.
+
+**Note:** Please note that this request does not use or require the guide id, just the step id.  The id of 11 in the example below is the step id, which is unique across the database for any given step.
+
+The header of this request must also include the relevant Content-Type and token information.
+
+The PUT request requires the following fields in the request body as JSON:
+
+```
+{
+  "id": 11,
+  "step_number": 2,
+  "description": "Install dependencies like express, sqlite, helmet, and cors"
+}
+```
+
+If successful, the get request will result in the following response, also in JSON:
+
+```
+
+{
+  "message": "Step updated!"
+}
+```
+
+---
+
+## Delete a Step
+
+Make a Delete request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/steps/:id
+
+where :id in the URL is the id of the step to be deleted.
+
+**Note:** Please note that this request does not use or require the guide id, just the step id, which is unique across the database for any given step.
+
+The header of this request must also include the relevant Content-Type and token information.
+
+If successful, the delete request will result in the following response, also as JSON:
+
+```
+{
+  "message": "Step deleted!"
+}
+```
