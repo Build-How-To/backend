@@ -140,7 +140,7 @@ router.put('/steps/:id', (req, res) => {
       if(step) {
         Guides.updateStep(stepData, id)
           .then(updatedStep => {
-            res.json({ message: 'Step updated!' });
+            res.json({ message: 'Step updated!', updatedStep });
           })
       } else {
         res.status(404).json({ message: 'Could not locate step with that id!' })
@@ -165,6 +165,24 @@ router.delete('/steps/:id', (req, res) => {
     })
     .catch (error => {
       res.status(500).json({ message: 'Error deleting that step!', error })
+    })
+})
+
+// get reviews by guide id
+router.get('/:id/reviews', (req, res) => {
+  const { id } = req.params;
+
+  Guides.getReviewsByGuideID(id)
+    .then(reviews => {
+      if(reviews.length) {
+        res.json(reviews)
+      } else {
+        res.status(404).json({ message: 'Could not locate any reviews with that guide id! '})
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json({ message: 'Error getting all reviews!' })
     })
 })
 

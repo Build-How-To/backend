@@ -351,7 +351,7 @@ If successful, the get request will result in the following response, also in JS
 
 ## Delete a Step
 
-Make a Delete request to:
+Make a DELETE request to:
 
 https://how-to-build-week.herokuapp.com/api/guides/steps/:id
 
@@ -368,3 +368,37 @@ If successful, the delete request will result in the following response, also as
   "message": "Step deleted!"
 }
 ```
+
+---
+
+## Get all reviews by guide id
+
+Make a GET request to: 
+
+https://how-to-build-week.herokuapp.com/api/guides/:id/reviews
+
+where :id in the URL is the id of the relevant guide.
+
+The header of this request must also include the relevant Content-Type and token information.
+
+If successful, the delete request will result in the following response, also as JSON:
+
+```
+[
+  {
+    "id": 1,
+    "title": "Upgrade your career",
+    "review": "I loved this guide!",
+    "author_user_id": 1,
+    "guide_id": 1
+  },
+  {
+    "id": 2,
+    "title": "Upgrade your career",
+    "review": "I thought this guide was just meh...",
+    "author_user_id": 2,
+    "guide_id": 1
+  }
+]
+```
+
