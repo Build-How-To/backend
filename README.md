@@ -76,7 +76,7 @@ AND
 
 where "token" is the token that was provided by the server upon successful login.
 
-If successful, the get request will get the following response, also as JSON:
+If successful, the get request will result in the following response, also as JSON:
 
 ```
 [
@@ -97,4 +97,29 @@ If successful, the get request will get the following response, also as JSON:
     "creator_user_id": 1
   }
 ]
+```
+
+---
+
+## Get guide by ID
+
+Make a GET request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/:id
+
+where :id in the URL is the id of the guide.
+
+The header of this request must also include the relevant Content-Type and token information.
+
+If successful, the get request will result in the following response, also as JSON:
+
+```
+{
+  "id": 4,
+  "title": "Edit a photo",
+  "description": "Make a good photograph look even better!",
+  "category": "photography",
+  "difficulty": "medium",
+  "creator_user_id": 1
+}
 ```

@@ -18,11 +18,16 @@ router.get('/', (req, res) => {
 
 // add guide
 router.post('/', (req, res) => {
-  const guideData = req.body;
+  const guide = req.body;
 
-  Guides.add(guideData)
+  Guides.addGuide(guide)
     .then(guide => {
-      res.status(201).json(guide);
+      res.status(201).json({
+        message: 'New guide added!',
+        id: guide.id,
+        title: guide.title,
+        description: guide.description
+      });
     })
     .catch(error => {
       res.status(500).json({ message: 'Error creating new guide', error })

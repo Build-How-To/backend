@@ -28,6 +28,6 @@ module.exports = server;
 // add logic to prevent empty strings in register/login fields, also in forms for guiedes/steps, see snippet sent by Samuel
 // add logic to prevent duplicate usernames and email addresses during registration
 // migrate to postgres
-// get documentation going in either the readme or postman docs, or both
 // implement relational table with foreign key for reviews
 // seed guides and steps
+// edit create guide model/router to return more than just the new guide id
