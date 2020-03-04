@@ -128,7 +128,7 @@ https://how-to-build-week.herokuapp.com/api/guides/:id
 
 where :id in the URL is the id of the guide.
 
-The header of this request must also include the relevant Content-Type and token information.
+The header of this request must also include the relevant token information.
 
 If successful, the get request will result in the following response, also as JSON:
 
@@ -218,7 +218,7 @@ https://how-to-build-week.herokuapp.com/api/guides/:id
 
 where :id in the URL is the id of the guide.
 
-The header of this request must also include the relevant Content-Type and token information.
+The header of this request must also include the relevant token information.
 
 If successful, the delete request will result in the following response, also as JSON:
 
@@ -238,7 +238,7 @@ https://how-to-build-week.herokuapp.com/api/guides/:id/steps
 
 where :id in the URL is the id of the guide.
 
-The header of this request must also include the relevant Content-Type and token information.
+The header of this request must also include the relevant token information.
 
 If successful, the get request will result in the following response, also in JSON:
 
@@ -359,7 +359,7 @@ where :id in the URL is the id of the step to be deleted.
 
 **Note:** Please note that this request does not use or require the guide id, just the step id, which is unique across the database for any given step.
 
-The header of this request must also include the relevant Content-Type and token information.
+The header of this request must also include the relevant token information.
 
 If successful, the delete request will result in the following response, also as JSON:
 
@@ -379,7 +379,7 @@ https://how-to-build-week.herokuapp.com/api/guides/:id/reviews
 
 where :id in the URL is the id of the relevant guide.
 
-The header of this request must also include the relevant Content-Type and token information.
+The header of this request must also include the relevant token information.
 
 If successful, the delete request will result in the following response, also as JSON:
 
@@ -442,7 +442,7 @@ https://how-to-build-week.herokuapp.com/api/guides/:id/reviews
 
 where :id in the URL is the id of the relevant review.
 
-The header of this request must also include the relevant Content-Type and token information.
+The header of this request must also include the relevant token information.
 
 If successful, the delete request will result in the following response, also in JSON:
 
