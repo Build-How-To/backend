@@ -3,6 +3,20 @@ const request = require('supertest');
 
 describe('server', () => {
   describe('GET /', () => {
+    // it('login response should not contain a token due to no credentials', function() {
+    //   return request(server).post('/api/auth/login')
+    //     .then(res => {
+    //       expect(res.header).not.toHaveProperty('token')
+    //     })
+    // })
+
+    // it('should return 401 status', function() {
+    //   return request(server).post('api/auth/login')
+    //     .then(res => {
+    //       expect(res.status).toBe(401);
+    //     })
+    // })
+
     it('should return 200 status', function() {
       return request(server).get('/')
         .then(res => {

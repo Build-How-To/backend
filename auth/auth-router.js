@@ -43,7 +43,7 @@ router.post('/login', (req, res) => {
       }
     })
     .catch(error => {
-      console.log('Error: ', error);
+      // console.log('Error: ', error);
       res.status(500).json({ error: 'Error logging in!' })
     })
 })
