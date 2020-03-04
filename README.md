@@ -431,3 +431,23 @@ If successful, the post request will result in the following response, also as J
   "message": "Review added!"
 }
 ```
+
+---
+
+## Delete a review
+
+Make a DELETE request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/:id/reviews
+
+where :id in the URL is the id of the relevant review.
+
+The header of this request must also include the relevant Content-Type and token information.
+
+If successful, the delete request will result in the following response, also in JSON:
+
+```
+{
+  "message": "Review deleted!"
+}
+```

@@ -207,4 +207,39 @@ router.post('/:id/reviews', (req, res) => {
     })
 })
 
+// get reviews by author id
+router.get('/:id/reviews_author', (req, res) => {
+  const { id } = req.params;
+
+  Guides.getReviewsByAuthorID(id)
+    .then(reviews => {
+      if(reviews.length) {
+        res.json(reviews)
+      } else {
+        res.status(404).json({ message: 'Could not locate any reviews with that author id! '})
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json({ message: 'Error getting all reviews!' })
+    })
+})
+
+// remove review
+router.delete('/:id/reviews', (req, res) => {
+  const { id } = req.params;
+  
+  Guides.removeReview(id)
+    .then(deleted => {
+      if (deleted) {
+        res.json({ message: 'Review deleted!' })
+      } else {
+        res.status(404).json({ message: 'Could not find review with that id!' })
+      }
+    })
+    .catch (error => {
+      res.status(500).json({ message: 'Error deleting that review!', error })
+    })
+})
+
 module.exports = router;

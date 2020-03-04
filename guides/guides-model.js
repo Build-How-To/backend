@@ -12,7 +12,9 @@ module.exports = {
   updateStep,
   removeStep,
   getReviewsByGuideID,
-  addReview
+  addReview,
+  getReviewsByAuthorID,
+  removeReview
 }
 
 function getAllGuides() {
@@ -90,4 +92,17 @@ function addReview(review) {
     .then(review => {
       return review;
     })
+}
+
+function getReviewsByAuthorID(id) {
+  return guidesDB('reviews')
+    .join('users', 'users.id', 'reviews.author_user_id')
+    .select('reviews.id', 'reviews.review', 'reviews.guide_id')
+    .where('reviews.author_user_id', id)
+}
+
+function removeReview(id) {
+  return guidesDB('reviews')
+    .where({ id })
+    .del()
 }
