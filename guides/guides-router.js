@@ -186,4 +186,25 @@ router.get('/:id/reviews', (req, res) => {
     })
 })
 
+// post a new review
+router.post('/:id/reviews', (req, res) => {
+  const { id } = req.params;
+  const reviewData = req.body;
+
+  Guides.getGuideByID(id)
+    .then(guide => {
+      if(guide) {
+        Guides.addReview(reviewData, id)
+          .then(review => {
+            res.status(201).json({ message: 'Review added!' })
+          })
+      } else {
+        res.status(404).json({ message: 'Could not find guide with that id!' })
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: 'Error adding review to guide!', error })
+    })
+})
+
 module.exports = router;

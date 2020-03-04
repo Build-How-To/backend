@@ -28,8 +28,5 @@ module.exports = server;
 // add logic to prevent empty strings in register/login fields, also in forms for guiedes/steps, see snippet sent by Samuel
 // add logic to prevent duplicate usernames and email addresses during registration
 // migrate to postgres
-// implement relational table with foreign key for reviews
-
-// add reviews table
 
 // heroku requires "tries": null in post new guide, but not required locally?

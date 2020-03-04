@@ -402,3 +402,32 @@ If successful, the delete request will result in the following response, also as
 ]
 ```
 
+---
+
+## Post a new review
+
+Make a POST request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/:id/reviews
+
+where :id in the URL is the id of the relevant guide.
+
+The header of this request must also include the relevant Content-Type and token information.
+
+The POST request must include the following fields in the request body as JSON:
+
+```
+{
+  "review": "I love this guide!",
+  "guide_id": 2,
+  "author_user_id": 1
+}
+```
+
+If successful, the post request will result in the following response, also as JSON:
+
+```
+{
+  "message": "Review added!"
+}
+```

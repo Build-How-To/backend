@@ -11,7 +11,8 @@ module.exports = {
   addStepToGuide,
   updateStep,
   removeStep,
-  getReviewsByGuideID
+  getReviewsByGuideID,
+  addReview
 }
 
 function getAllGuides() {
@@ -81,4 +82,12 @@ function getReviewsByGuideID(id) {
     .join('guides', 'guides.id', 'reviews.guide_id')
     .select('reviews.id', 'guides.title', 'reviews.review', 'reviews.author_user_id', 'reviews.guide_id')
     .where('reviews.guide_id', id)
+}
+
+function addReview(review) {
+  return guidesDB('reviews')
+    .insert(review)
+    .then(review => {
+      return review;
+    })
 }
