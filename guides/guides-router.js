@@ -4,6 +4,40 @@ const Guides = require('./guides-model');
 
 const router = express.Router();
 
+// get guides by category
+router.get('/category', (req, res) => {
+  const { category } = req.body;
+
+  Guides.getGuidesByCategory(category)
+    .then(guides => {
+      if(guides.length) {
+        res.json(guides)
+      } else {
+        res.status(404).json({ message: 'Could not locate guides with that category!' })
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: 'Error getting guides by category!', error })
+    })
+})
+
+// get guides by difficulty
+router.get('/difficulty', (req, res) => {
+  const { difficulty } = req.body;
+
+  Guides.getGuidesByDifficulty(difficulty)
+    .then(guides => {
+      if(guides.length) {
+        res.json(guides)
+      } else {
+        res.status(404).json({ message: 'Could not locate guides with that difficulty!' })
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: 'Error getting guides by difficulty!', error })
+    })
+})
+
 // get all guides
 router.get('/', (req, res) => {
   Guides.getAllGuides()

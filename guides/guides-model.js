@@ -14,7 +14,9 @@ module.exports = {
   getReviewsByGuideID,
   addReview,
   getReviewsByAuthorID,
-  removeReview
+  removeReview,
+  getGuidesByCategory,
+  getGuidesByDifficulty
 }
 
 function getAllGuides() {
@@ -105,4 +107,14 @@ function removeReview(id) {
   return guidesDB('reviews')
     .where({ id })
     .del()
+}
+
+function getGuidesByCategory(category) {
+  return guidesDB('guides')
+    .where({ category })
+}
+
+function getGuidesByDifficulty(difficulty) {
+  return guidesDB('guides')
+    .where({ difficulty })
 }

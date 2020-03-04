@@ -451,3 +451,76 @@ If successful, the delete request will result in the following response, also in
   "message": "Review deleted!"
 }
 ```
+
+## Get all guides by category
+
+Make a GET request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/category
+
+The header of this request must also include the relevant Content-Type and token information.
+
+The GET request requires the following field in the request body as JSON:
+
+```
+{
+  "category": "tech"
+}
+```
+
+If successful, the get request will result in the following response, also in JSON:
+
+```
+[
+  {
+    "id": 1,
+    "title": "Upgrade your career",
+    "description": "Get a better career in a few (easy?) steps!",
+    "category": "tech",
+    "difficulty": "hard",
+    "creator_user_id": 1,
+    "tries": null
+  }
+]
+```
+
+### Get all guides by difficulty
+
+Make a GET request to:
+
+https://how-to-build-week.herokuapp.com/api/guides/difficulty
+
+The header of this request must also include the relevant Content-Type and token information.
+
+The GET request requires the following field in the request body as JSON:
+
+```
+{
+  "difficulty": "hard"
+}
+```
+
+If successful, the get request will result in the following response, also in JSON:
+
+```
+[
+  {
+    "id": 1,
+    "title": "Upgrade your career",
+    "description": "Get a better career in a few (easy?) steps!",
+    "category": "tech",
+    "difficulty": "hard",
+    "creator_user_id": 1,
+    "tries": null
+  },
+  {
+    "id": 2,
+    "title": "Make a dubstep tune",
+    "description": "Create a new dancefloor hit from scratch!",
+    "category": "music",
+    "difficulty": "hard",
+    "creator_user_id": 1,
+    "tries": null
+  }
+]
+```
