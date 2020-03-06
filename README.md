@@ -484,7 +484,7 @@ If successful, the get request will result in the following response, also in JS
 ]
 ```
 
-### Get all guides by difficulty
+## Get all guides by difficulty
 
 Make a GET request to:
 

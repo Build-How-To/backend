@@ -4,6 +4,8 @@ const Guides = require('./guides-model');
 
 const router = express.Router();
 
+const validateNewGuide = require('./validateNewGuide');
+
 // get guides by category
 router.get('/category', (req, res) => {
   const { category } = req.body;
@@ -51,7 +53,7 @@ router.get('/', (req, res) => {
 })
 
 // add guide
-router.post('/', (req, res) => {
+router.post('/', validateNewGuide, (req, res) => {
   const guide = req.body;
 
   Guides.addGuide(guide)
@@ -277,3 +279,51 @@ router.delete('/:id/reviews', (req, res) => {
 })
 
 module.exports = router;
+
+// function validateBody(req, res, next) {
+//   let body = req.body;
+
+//   if (!body.title || body.title.length === 0 || /^\s*$/.test(body.title)) {
+//     res.status(400).json({ message: "Please, enter a title" });
+//   } else if (
+//     !body.description ||
+//     body.description.length === 0 ||
+//     /^\s*$/.test(body.description)
+//   ) {
+//     res.status(400).json({ message: "Please, enter a description" });
+//   } else if (
+//     !body.category ||
+//     body.category.length === 0 ||
+//     /^\s*$/.test(body.category)
+//   ) {
+//     res
+//       .status(400)
+//       .json({ message: "Please, place this post under a category" });
+//   } else if (
+//     !body.difficulty ||
+//     body.difficulty.length === 0 ||
+//     /^\s*$/.test(body.difficulty)
+//   ) {
+//     res.status(400).json({ message: "Please, enter a difficulty level" });
+//   } else {
+//     next();
+//   }
+// }
+
+// function validateId(req, res, next) {
+//   let id = req.params.id;
+
+//   db.findById(id)
+//     .then(item => {
+//       if (item) {
+//         next();
+//       } else {
+//         res.status(400).json({
+//           errorMessage: `A guide with an ID of ${id} does not exist!`
+//         });
+//       }
+//     })
+//     .catch(err => {
+//       res.status(500).json({ errorMessage: "Error occured" });
+//     });
+// }

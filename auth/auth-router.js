@@ -5,8 +5,10 @@ const jwt = require('jsonwebtoken');
 const Users = require('../users/usersModel.js');
 const { jwtSecret } = require('../config/secrets.js');
 
+const { validateBody, validateLogin } = require('./validateBody.js');
+
 // register new user
-router.post('/register', (req, res) => {
+router.post('/register', validateBody, (req, res) => {
   const user = req.body;
   const hash = bcrypt.hashSync(user.password, 10);
   user.password = hash;
@@ -24,7 +26,7 @@ router.post('/register', (req, res) => {
 });
 
 // login
-router.post('/login', (req, res) => {
+router.post('/login', validateLogin, (req, res) => {
   const { username, password } = req.body;
 
   Users.findBy({ username })
@@ -43,8 +45,7 @@ router.post('/login', (req, res) => {
       }
     })
     .catch(error => {
-      // console.log('Error: ', error);
-      res.status(500).json({ error: 'Error logging in!' })
+      res.status(500).json({ error: 'Error logging in!', error })
     })
 })
 

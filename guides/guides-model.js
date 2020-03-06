@@ -35,9 +35,15 @@ function updateGuide(changes, id) {
     .update(changes);
 }
 
+// function removeGuide(id) {
+//   return guidesDB('guides')
+//     .where({ id })
+//     .del()
+// }
+
 function removeGuide(id) {
   return guidesDB('guides')
-    .where({ id })
+    .where({ "The column ID name": id })
     .del()
 }
 
