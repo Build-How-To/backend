@@ -74,3 +74,4 @@ module.exports = server;
 // async function insert(hobbit) {
 //   const [ id ] = await debugger('hobbits').insert(hobbit, 'id');
 // }
+// This will need to be done for all insert requests in the model files
