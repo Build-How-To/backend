@@ -43,7 +43,7 @@ function updateGuide(changes, id) {
 
 function removeGuide(id) {
   return guidesDB('guides')
-    .where({ "Guide id": id })
+    .where({ id })
     .del()
 }
 
