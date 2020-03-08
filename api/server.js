@@ -25,10 +25,11 @@ module.exports = server;
 
 // ToDo
 // revisit photo option in guides-model
-// add logic to prevent empty strings in register/login fields, also in forms for guiedes/steps, see snippet sent by Samuel
+// add logic to prevent empty strings in register/login fields, also in forms for guiedes/steps, see snippet sent by Samuel with regex
 // add logic to prevent duplicate usernames and email addresses during registration
 // migrate to postgres
 // revisit role authentication for users, include id in token and decrypt upon edit/delete request?
+// conditional render with user id.  No edit/delete buttons unless enabled.
 
 // ADD *.db3 to gitignore!
 

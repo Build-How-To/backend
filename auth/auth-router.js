@@ -17,7 +17,8 @@ router.post('/register', validateBody, (req, res) => {
     .then(user => {
       res.status(201).json({
         message: `Welcome, ${user.username}!`,
-        id: user.id
+        id: user.id,
+        username: user.username
       });
     })
     .catch(error => {
