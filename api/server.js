@@ -30,6 +30,7 @@ module.exports = server;
 // migrate to postgres
 // revisit role authentication for users, include id in token and decrypt upon edit/delete request?
 // conditional render with user id.  No edit/delete buttons unless enabled.
+// fix issue that causes a user to be redirected to guidelist upon register, but to not have any guides shown.  This is due to not having a valid token, which currently is only provided upon login.
 
 // ADD *.db3 to gitignore!
 
