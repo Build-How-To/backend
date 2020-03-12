@@ -111,3 +111,5 @@ dist
 .DS_Store
 
 *.db3
+
+notes.js
