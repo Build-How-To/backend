@@ -69,6 +69,21 @@ router.get('/users/:id', (req, res) => {
     })
 })
 
+// get all users
+router.get('/users', (req, res) => {
+  Users.getAllUsers()
+    .then(users => {
+      if(users) {
+        res.status(200).json(users)
+      } else {
+        res.status(404).json({ message: 'Could not find any users!' })
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: 'Error getting all users! ', error })
+    })
+})
+
 function generateToken(user) {
   const payload = {
     username: user.username,
