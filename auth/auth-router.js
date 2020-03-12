@@ -84,6 +84,23 @@ router.get('/users', (req, res) => {
     })
 })
 
+// delete user
+router.delete('/user/:id', (req, res) => {
+  const { id } = req.params;
+
+  Users.remove(id)
+    .then(deleted => {
+      if (deleted) {
+        res.json({ message: `Removed ${deleted} user!` })
+      } else {
+        res.status(404).json({ message: 'Could not delete a user with that id! ' })
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ message: 'Error deleting user by ID! ', error })
+    })
+})
+
 function generateToken(user) {
   const payload = {
     username: user.username,
