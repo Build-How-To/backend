@@ -26,7 +26,8 @@ function findById(id) {
 }
 
 function getAllUsers() {
-  return userDB('users');
+  return userDB('users')
+    .select('username', 'id', 'email', 'first_name', 'last_name');
 }
 
 function remove(id) {
