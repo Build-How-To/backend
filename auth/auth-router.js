@@ -8,6 +8,24 @@ const { jwtSecret } = require('../config/secrets.js');
 const { validateBody, validateLogin } = require('./validateBody.js');
 
 // register new user
+// router.post('/register', validateBody, (req, res) => {
+//   const user = req.body;
+//   const hash = bcrypt.hashSync(user.password, 10);
+//   user.password = hash;
+
+//   Users.add(user)
+//     .then(user => {
+//       res.status(201).json({
+//         message: `Welcome, ${user.username}!`,
+//         id: user.id,
+//         username: user.username
+//       });
+//     })
+//     .catch(error => {
+//       res.status(500).json({ message: 'Error registering! ', error })
+//     })
+// });
+
 router.post('/register', validateBody, (req, res) => {
   const user = req.body;
   const hash = bcrypt.hashSync(user.password, 10);
@@ -15,16 +33,23 @@ router.post('/register', validateBody, (req, res) => {
 
   Users.add(user)
     .then(user => {
+      if(user && bcrypt.comparesSync(password, user.password)){
+        const token = generateToken(user);
+    
       res.status(201).json({
         message: `Welcome, ${user.username}!`,
         id: user.id,
-        username: user.username
-      });
-    })
+        username: user.username,
+        token
+      }) 
+      } else {
+        res.status(401).json({ message: 'Could not register!'})
+      }
+      })
     .catch(error => {
-      res.status(500).json({ message: 'Error registering! ', error })
+      res.status(500).json({ error : 'Error logging in!', error })
     })
-});
+})
 
 // login
 router.post('/login', validateLogin, (req, res) => {

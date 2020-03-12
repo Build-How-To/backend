@@ -29,6 +29,7 @@ module.exports = server;
 // add logic to prevent duplicate usernames and email addresses during registration
 // migrate to postgres
 // revisit role authentication for users, include id in token and decrypt upon edit/delete request?
+// once role authentication is implemented, add get all users db request function for an admin role
 // conditional render with user id.  No edit/delete buttons unless enabled.
 // fix issue that causes a user to be redirected to guidelist upon register, but to not have any guides shown.  This is due to not having a valid token, which currently is only provided upon login.
 
