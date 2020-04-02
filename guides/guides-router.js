@@ -155,7 +155,7 @@ router.post('/:id/steps', (req, res) => {
       if (guide) {
         Guides.addStepToGuide(stepData, id)
           .then(step => {
-            res.status(201).json({ message: 'Step added!' })
+            res.status(201).json({ message: 'Step added!', step })
           })
       } else {
         res.status(404).json({ message: 'Could not find guide with that id!' })
