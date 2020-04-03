@@ -148,12 +148,12 @@ router.get('/:id/steps', (req, res) => {
 // add step to guide
 router.post('/:id/steps', (req, res) => {
   const stepData = req.body;
-  const { id } = req.params;
+  const guide_id = req.params.id;
 
-  Guides.getGuideByID(id)
+  Guides.getGuideByID(guide_id)
     .then(guide => {
       if (guide) {
-        Guides.addStepToGuide(stepData, id)
+        Guides.addStepToGuide(stepData, guide_id)
           .then(step => {
             res.status(201).json({ message: 'Step added!', step })
           })

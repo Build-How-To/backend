@@ -61,12 +61,12 @@ function getStepByID(id) {
     .first()
 }
 
-function addStepToGuide(step, id) {
+function addStepToGuide(stepData, guide_id) {
   return guidesDB('steps')
-    .insert({ ...step, id})
-    .then(([id]) => {
-      return guidesDB('steps'
-      .where({ id }))
+    .insert({ ...stepData, guide_id })
+    .then((guide_id) => {
+      return guidesDB('steps')
+      .where({ guide_id })
     })
 }
 
