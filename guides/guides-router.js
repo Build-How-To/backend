@@ -148,6 +148,7 @@ router.get('/:id/steps', (req, res) => {
 // add step to guide
 router.post('/:id/steps', (req, res) => {
   const stepData = req.body;
+  const description = req.body.description
   const guide_id = req.params.id;
 
   Guides.getGuideByID(guide_id)
@@ -155,7 +156,7 @@ router.post('/:id/steps', (req, res) => {
       if (guide) {
         Guides.addStepToGuide(stepData, guide_id)
           .then(step => {
-            res.status(201).json({ message: 'Step added!', step })
+            res.status(201).json({ message: 'Step added!', description})
           })
       } else {
         res.status(404).json({ message: 'Could not find guide with that id!' })
